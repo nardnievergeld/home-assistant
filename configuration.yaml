@@ -105,9 +105,6 @@ ifttt:
 # Other components
 # ----------------------------------------------------
 
-# Discover some devices automatically
-discovery:
-
 # Track the sun
 sun:
 
