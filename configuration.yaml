@@ -13,13 +13,85 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret api_password 
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  base_url: !secret base_url
+  ssl_certificate: !secret ssl_cert
+  ssl_key: !secret ssh_key 
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+recorder:
+  purge_interval: 2
+  purge_keep_days: 5
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+upnp:
+    port_mapping: false
+
+# Cloud
+cloud:
+
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 
+mqtt:
+    broker: localhost
+    port: 1885
+    username: !secret username
+    password: !secret mqtt_password
+    keepalive: 3600
+  
+google_assistant:
+    project_id: hass-io-skill
+    client_id: !secret google_assistant_client_id 
+    access_token: !secret google_assistant_access_token
+    api_key: !secret google_assistant_api_key
+    agent_user_id: !secret google_assistant_agent_user_id
+    exposed_domains:
+      - switch
+      - light
+      - group
+      - media_player
+      - scene
+
+ifttt:
+    key: !secret ifttt_key
 
 # Get contents of subdirectories.
-!include_dir_merge_list components
 sensor: !include_dir_merge_list sensor
 switch: !include_dir_merge_list switch
 media_player: !include_dir_merge_list media_player
