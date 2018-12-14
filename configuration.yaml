@@ -74,21 +74,6 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 
 # Example configuration.yaml entry
-media_player:
-  - platform: spotify
-    scan_interval: 10
-    client_id: !secret spotify_client_id 
-    client_secret: !secret spotify_client_secret
-  - platform: kodi
-    scan_interval: 3
-    host: localhost
-  - platform: snapcast
-    host: localhost
-  - platform: philips_js
-    host: !secret philips_tv_ip
-    api_version: 5
-
-# Example configuration.yaml entry
 notify:
   - platform: kodi
     name: NOTIFIER_NAME
@@ -134,3 +119,4 @@ rest_command:
 # Get contents of subdirectories.
 sensor: !include_dir_merge_list sensor
 switch: !include_dir_merge_list switch
+media_player: !include_dir_merge_list media_player
