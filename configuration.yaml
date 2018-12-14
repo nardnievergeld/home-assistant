@@ -52,12 +52,6 @@ history:
 # View all events in a logbook
 logbook:
 
-logger:
-  default: info
-  logs:
-    dsmr_parser: debug
-    homeassistant.components.dsmr: debug
-
 # Enables a map showing the location of tracked devices
 map:
 
