@@ -1,0 +1,8 @@
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+# Enables a map showing the location of tracked devices
+map:

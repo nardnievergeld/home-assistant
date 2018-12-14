@@ -1,0 +1,2 @@
+upnp:
+    port_mapping: false

@@ -1,0 +1,6 @@
+mqtt:
+    broker: localhost
+    port: 1885
+    username: !secret username
+    password: !secret mqtt_password
+    keepalive: 3600
