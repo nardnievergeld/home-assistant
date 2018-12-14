@@ -1,0 +1,10 @@
+media_player.kodi:
+  google_assistant: true
+  google_assistant_type: media_player
+media_player.spotify:
+  google_assistant: true
+  google_assistant_type: media_player
+sensor.igd_packets_received:
+  hidden: true
+sensor.igd_packets_sent:
+  hidden: true

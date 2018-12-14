@@ -1,0 +1,339 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret hass_latitude
+  longitude: !secret hass_longitude 
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 20
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Amsterdam
+  # Customization file
+  customize: !include customize.yaml
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret api_password 
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  base_url: !secret base_url
+  ssl_certificate: !secret ssl_cert
+  ssl_key: !secret ssh_key 
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+recorder:
+  purge_interval: 2
+  purge_keep_days: 5
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+logger:
+  default: info
+  logs:
+    dsmr_parser: debug
+    homeassistant.components.dsmr: debug
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+sensor:
+  - platform: dsmr
+    host: !secret ser2net_host
+    port: 2001
+    dsmr_version: 5
+  - platform: yr
+  - platform: buienradar
+    monitored_conditions:
+      - symbol
+      - humidity
+      - temperature
+      - windspeed
+      - pressure
+      - stationname
+      - conditioncode
+      - condition
+      - conditiondetailed
+      - conditionexact
+      - groundtemperature
+      - windforce
+      - winddirection
+      - windazimuth
+      - visibility
+      - windgust
+      - precipitation
+      - irradiance
+      - precipitation_forecast_average
+      - precipitation_forecast_total
+  - platform: moon
+  - platform: hddtemp
+    disks:
+      - /dev/sda
+      - /dev/sdb
+      - /dev/sdc
+  - platform: mqtt
+    name: "Battery"
+    state_topic: "tasker/battery"
+    qos: 0
+    unit_of_measurement: "%"
+  - platform: mqtt
+    name: "Steps"
+    state_topic: "tasker/stepstaken"
+    qos: 0
+    unit_of_measurement: "steps"
+  - platform: mqtt
+    name: "Call status"
+    state_topic: "tasker/call"
+    qos: 0
+  - platform: mqtt
+    name: "Orientation"
+    state_topic: "tasker/orientation"
+    qos: 0
+  - platform: mqtt
+    name: "Activity"
+    state_topic: "tasker/activity"
+    qos: 0
+  - platform: transmission
+    host: localhost
+    username: nard
+    password: !secret transmission_password
+    monitored_variables:
+      - 'current_status'
+      - 'download_speed'
+      - 'upload_speed'
+      - 'active_torrents'
+  - platform: google_travel_time
+    name: Fietsen naar huis
+    api_key: !secret google_api_key
+    origin: device_tracker.nard
+    destination: zone.home
+    mode: bicycling
+  - platform: google_travel_time
+    name: Rijden naar Huis
+    api_key: !secret google_api_key
+    origin: device_tracker.nard
+    destination: zone.home
+    mode: driving
+  - platform: google_travel_time
+    name: Fietsen naar werk
+    api_key: !secret google_api_key
+    origin: device_tracker.nard
+    destination: zone.work
+    mode: bicycling
+  - platform: waqi
+    token: !secret waqi_api_key
+    locations: 
+        - Eindhoven
+  - platform: template
+    sensors:
+        minder_gas_datum:
+            friendly_name: "Datum minder gas"
+            value_template: "{{ as_timestamp(now()) | timestamp_custom('%Y-%m-%d', True) }}"
+
+upnp:
+    port_mapping: false
+
+# Text to speech
+tts:
+  - platform: google
+    language: 'nl'
+
+# Cloud
+cloud:
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+# Example configuration.yaml entry
+media_player:
+  - platform: spotify
+    scan_interval: 10
+    client_id: !secret spotify_client_id 
+    client_secret: !secret spotify_client_secret
+  - platform: kodi
+    scan_interval: 3
+    host: localhost
+  - platform: plex
+  - platform: snapcast
+    host: localhost
+  - platform: philips_js
+    host: !secret philips_tv_ip
+    api_version: 5
+
+# Example configuration.yaml entry
+notify:
+  - platform: kodi
+    name: NOTIFIER_NAME
+    host: localhost
+
+device_tracker:
+  - platform: mqtt_json
+    devices:
+       nard: tasker/location
+
+camera:
+  - platform: mqtt
+    topic: zanzito/nard/picture
+    name: Zanzito Camera
+
+binary_sensor:
+   - platform: mqtt
+     name: "Headset"
+     state_topic: "tasker/headset"
+     payload_on: "1"
+     payload_off: "0"
+     qos: 0
+   - platform: mqtt
+     name: "Display on"
+     state_topic: "tasker/display"
+     payload_on: "1"
+     payload_off: "0"
+     qos: 0
+   - platform: mqtt
+     name: "Proximity sensor"
+     state_topic: "tasker/proximity"
+     payload_on: "1"
+     payload_off: "0"
+     qos: 0
+   - platform: mqtt
+     name: "Charger"
+     state_topic: "tasker/charger"
+     payload_on: "1"
+     payload_off: "0"
+     qos: 0
+   - platform: workday
+     country: NL
+   - platform: template
+     sensors:
+         phone_in_pocket:
+             friendly_name: "Telefoon in broekzak"
+             value_template: "{{ states('sensor.proximity_sensor')|int < 5 and is_state('binary_sensor.zanzito_status','on') }}"
+             entity_id:
+                  - sensor.proximity_sensor
+                  - binary_sensor.zanzito_status 
+         steps_goal_reached:
+             friendly_name: "Stappen behaald"
+             value_template: "{{ states('sensor.steps')|int >= states('input_number.target_steps')|int }}"
+             entity_id:
+                  - input_number.target_steps
+                  - sensor.steps
+input_number:
+    target_steps:
+        name: "Doel stappen"
+        initial: 3000
+        min: 1000
+        max: 20000
+        mode: box
+        
+mqtt:
+    broker: localhost
+    port: 1885
+    username: !secret username
+    password: !secret mqtt_password
+    keepalive: 3600
+  
+google_assistant:
+    project_id: hass-io-skill
+    client_id: !secret google_assistant_client_id 
+    access_token: !secret google_assistant_access_token
+    api_key: !secret google_assistant_api_key
+    agent_user_id: !secret google_assistant_agent_user_id
+    exposed_domains:
+      - switch
+      - light
+      - group
+      - media_player
+      - scene
+
+ifttt:
+    key: !secret ifttt_key
+
+proximity:
+    home:
+        zone: home
+        devices:
+          - device_tracker.nard
+        tolerance: 50
+        unit_of_measurement: m
+    work:
+        zone: work
+        devices:
+          - device_tracker.nard
+        tolerance: 50
+        unit_of_measurement: m
+
+switch:
+    - platform: pulseaudio_loopback
+      name: "Kodi on TV"
+      sink_name: "tvaudio"
+      source_name: "kodi_sink.monitor"
+    - platform: pulseaudio_loopback
+      name: "Kodi on Radio"
+      sink_name: "radioaudio"
+      source_name: "kodi_sink.monitor"
+    - platform: pulseaudio_loopback
+      name: "Kodi on Snapcast"
+      sink_name: "snapcast"
+      source_name: "kodi_sink.monitor"
+    - platform: pulseaudio_loopback
+      name: "Spotify on TV"
+      sink_name: "tvaudio"
+      source_name: "spotify_sink.monitor"
+    - platform: pulseaudio_loopback
+      name: "Spotify on Radio"
+      sink_name: "radioaudio"
+      source_name: "spotify_sink.monitor"
+    - platform: pulseaudio_loopback
+      name: "Spotify on Snapcast"
+      sink_name: "snapcast"
+      source_name: "spotify_sink.monitor"
+    - platform: pulseaudio_loopback
+      name: "Snapcast on TV"
+      sink_name: "tvaudio"
+      source_name: "snapcast_sink.monitor"
+    - platform: pulseaudio_loopback
+      name: "Snapcast on Radio"
+      sink_name: "radioaudio"
+      source_name: "snapcast_sink.monitor"
+
+
+rest_command:
+    send_mindergas:
+        url: https://www.mindergas.nl/api/gas_meter_readings
+        method: POST
+        headers: 
+            AUTH-TOKEN: !secret minder_gas_auth_token
+            Content-Type: application/json
+        payload: '{"date" : "{{states.sensor.minder_gas_datum.state}}","reading" : {{ states.sensor.gas_consumption.state }}}'
+        content_type:  'application/json'
+
+
