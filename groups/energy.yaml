@@ -1,0 +1,8 @@
+default_view:
+  view: true
+  icon: mdi:home
+  entities:
+    - sensor.gas_consumption
+    - sensor.hourly_gas_consumption
+    - sensor.long_power_failure_count
+    - sensor.power_consumption
