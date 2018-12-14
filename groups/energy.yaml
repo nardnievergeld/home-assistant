@@ -1,6 +1,7 @@
-default_view:
+energie:
+  name: Energie
   view: true
-  icon: mdi:home
+  icon: mdi:lightbulb-on-outline
   entities:
     - sensor.gas_consumption
     - sensor.hourly_gas_consumption
