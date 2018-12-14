@@ -1,0 +1,25 @@
+  - platform: buienradar
+    monitored_conditions:
+      - symbol
+      - humidity
+      - temperature
+      - windspeed
+      - pressure
+      - conditioncode
+      - condition
+      - groundtemperature
+      - winddirection
+      - visibility
+      - precipitation
+      - irradiance
+      - precipitation_forecast_average
+      - precipitation_forecast_total
+  - platform: waqi
+    token: !secret waqi_api_key
+    locations: 
+        - Eindhoven
+  - platform: template
+    sensors:
+        minder_gas_datum:
+            friendly_name: "Datum minder gas"
+            value_template: "{{ as_timestamp(now()) | timestamp_custom('%Y-%m-%d', True) }}"

@@ -58,39 +58,6 @@ map:
 # Track the sun
 sun:
 
-# Weather prediction
-sensor:
-  - platform: dsmr
-    host: !secret ser2net_host
-    port: 2001
-    dsmr_version: 5
-    dsmr_version: 5
-  - platform: buienradar
-    monitored_conditions:
-      - symbol
-      - humidity
-      - temperature
-      - windspeed
-      - pressure
-      - conditioncode
-      - condition
-      - groundtemperature
-      - winddirection
-      - visibility
-      - precipitation
-      - irradiance
-      - precipitation_forecast_average
-      - precipitation_forecast_total
-  - platform: waqi
-    token: !secret waqi_api_key
-    locations: 
-        - Eindhoven
-  - platform: template
-    sensors:
-        minder_gas_datum:
-            friendly_name: "Datum minder gas"
-            value_template: "{{ as_timestamp(now()) | timestamp_custom('%Y-%m-%d', True) }}"
-
 upnp:
     port_mapping: false
 
@@ -199,4 +166,5 @@ rest_command:
         payload: '{"date" : "{{states.sensor.minder_gas_datum.state}}","reading" : {{ states.sensor.gas_consumption.state }}}'
         content_type:  'application/json'
 
-
+# Get contents of subdirectories.
+sensor: !include_dir_merge_list sensor
