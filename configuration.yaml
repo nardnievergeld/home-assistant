@@ -1,31 +1,20 @@
+# ----------------------------------------------------
+# Instance
+# ----------------------------------------------------
 homeassistant:
-  # Name of the location where Home Assistant is running
-  name: Home
-  # Location required to calculate the time the sun rises and sets
-  latitude: !secret hass_latitude
-  longitude: !secret hass_longitude 
-  # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 20
-  # metric for Metric, imperial for Imperial
-  unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time_zone: Europe/Amsterdam
-  # Customization file
-  customize: !include customize.yaml
-
-# Enables the frontend
-frontend:
-
-# Enables configuration UI
-config:
-
-http:
-  # Secrets are defined in the file secrets.yaml
-  api_password: !secret api_password 
-  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  base_url: !secret base_url
-  ssl_certificate: !secret ssl_cert
-  ssl_key: !secret ssh_key 
+    # Name of the location where Home Assistant is running
+    name: Home
+    # Location required to calculate the time the sun rises and sets
+    latitude: !secret hass_latitude
+    longitude: !secret hass_longitude 
+    # Impacts weather/sunrise data (altitude above sea level in meters)
+    elevation: 20
+    # metric for Metric, imperial for Imperial
+    unit_system: metric
+    # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+    time_zone: Europe/Amsterdam
+    # Customization file
+    customize: !include customize.yaml
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -36,45 +25,62 @@ updater:
   # Optional, allows Home Assistant developers to focus on popular components.
   # include_used_components: true
 
-# Discover some devices automatically
-discovery:
+# Cloud
+cloud:
 
-# Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
+# ----------------------------------------------------
+# UI
+# ----------------------------------------------------
 
-recorder:
-  purge_interval: 2
-  purge_keep_days: 5
+# Enables the frontend
+frontend:
 
-# Enables support for tracking state changes over time
-history:
+# Enables configuration UI
+config:
 
 # View all events in a logbook
 logbook:
 
+# Enables support for tracking state changes over time
+history:
+
+recorder:
+    purge_interval: 2
+    purge_keep_days: 5
+
+
 # Enables a map showing the location of tracked devices
 map:
 
-# Track the sun
-sun:
+# ----------------------------------------------------
+# HTTP
+# ----------------------------------------------------
+http:
+    # Secrets are defined in the file secrets.yaml
+    api_password: !secret api_password 
+    # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+    base_url: !secret base_url
+    ssl_certificate: !secret ssl_cert
+    ssl_key: !secret ssh_key 
 
-upnp:
-    port_mapping: false
 
-# Cloud
-cloud:
-
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
-
+# ----------------------------------------------------
+# Message brokers
+# ----------------------------------------------------
 mqtt:
     broker: localhost
     port: 1885
     username: !secret username
     password: !secret mqtt_password
     keepalive: 3600
-  
+
+# ----------------------------------------------------
+# Conversation/voice control
+# ----------------------------------------------------
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
 google_assistant:
     project_id: hass-io-skill
     client_id: !secret google_assistant_client_id 
@@ -88,10 +94,33 @@ google_assistant:
       - media_player
       - scene
 
+# ----------------------------------------------------
+# External automation
+# ----------------------------------------------------
+
 ifttt:
     key: !secret ifttt_key
 
-# Get contents of subdirectories.
+# ----------------------------------------------------
+# Other components
+# ----------------------------------------------------
+
+# Discover some devices automatically
+discovery:
+
+# Track the sun
+sun:
+
+upnp:
+    port_mapping: false
+
+# ----------------------------------------------------
+# Configuration subdirectories/files
+# ----------------------------------------------------
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
 sensor: !include_dir_merge_list sensor
 switch: !include_dir_merge_list switch
 media_player: !include_dir_merge_list media_player
