@@ -1,0 +1,3 @@
+- platform: kodi
+  name: NOTIFIER_NAME
+  host: localhost

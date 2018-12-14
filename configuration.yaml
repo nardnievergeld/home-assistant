@@ -73,16 +73,6 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 
-# Example configuration.yaml entry
-notify:
-  - platform: kodi
-    name: NOTIFIER_NAME
-    host: localhost
-
-binary_sensor:
-   - platform: workday
-     country: NL
-
 mqtt:
     broker: localhost
     port: 1885
@@ -111,3 +101,5 @@ sensor: !include_dir_merge_list sensor
 switch: !include_dir_merge_list switch
 media_player: !include_dir_merge_list media_player
 rest_command: !include_dir_merge_list rest_command
+binary_sensor: !include_dir_merge_list binary_sensor
+notify: !include_dir_merge_list notify
