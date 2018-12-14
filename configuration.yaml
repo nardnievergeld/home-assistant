@@ -106,17 +106,8 @@ google_assistant:
 ifttt:
     key: !secret ifttt_key
 
-rest_command:
-    send_mindergas:
-        url: https://www.mindergas.nl/api/gas_meter_readings
-        method: POST
-        headers: 
-            AUTH-TOKEN: !secret minder_gas_auth_token
-            Content-Type: application/json
-        payload: '{"date" : "{{states.sensor.minder_gas_datum.state}}","reading" : {{ states.sensor.gas_consumption.state }}}'
-        content_type:  'application/json'
-
 # Get contents of subdirectories.
 sensor: !include_dir_merge_list sensor
 switch: !include_dir_merge_list switch
 media_player: !include_dir_merge_list media_player
+rest_command: !include_dir_merge_list rest_command
