@@ -4,4 +4,4 @@ cards:
   - type: glance
     columns: 6
     entities:
-      - group.weather
+      - group.weather_home
