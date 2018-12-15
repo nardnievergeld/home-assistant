@@ -1,0 +1,3 @@
+title: Home
+views:
+  - !include lovelace/default_view.yaml
