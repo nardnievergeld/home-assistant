@@ -1,0 +1,11 @@
+.HA_VERSION
+.spotify-token-cache
+.uuid
+deps/
+home-assistant.log
+home-assistant_v2.db
+plex.conf
+secrets.yaml
+tts/7e4aa79b7be729bdc1c3af36b0c6dc6d7d312ceb_nl_-_google.mp3
+www/
+entity_registry.yaml
