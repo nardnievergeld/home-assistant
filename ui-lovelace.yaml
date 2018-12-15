@@ -5,3 +5,7 @@ views:
 resources:
   - url: /local/custom-lovelace/group-card/group-card.js?v=1
     type: js
+
+resources:
+  - url: /local/custom-lovelace/gauge-card/gauge-card.js?v=1
+    type: js
