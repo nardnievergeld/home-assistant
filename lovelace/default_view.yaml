@@ -1,0 +1,9 @@
+title: default_view
+icon: mdi:home
+cards:
+  - type: custom:group-card
+    card:
+      type: glance
+      title: Weather
+      columns: 6
+    group: group.weather_home
