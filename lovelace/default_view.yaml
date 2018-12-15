@@ -11,3 +11,9 @@ cards:
     min: 0
     max: 1
     entity: sensor.power_consumption
+  - type: history-graph
+    title: 'Energy consumption'
+    hours_to_show: 48
+    refresh_interval: 5
+    entities:
+      - sensor.power_consumption
