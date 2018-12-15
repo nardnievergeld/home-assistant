@@ -121,7 +121,7 @@ group: !include_dir_merge_named groups
 sensor: !include_dir_merge_list sensor
 switch: !include_dir_merge_list switch
 media_player: !include_dir_merge_list media_player
-rest_command: !include_dir_merge_list rest_command
+rest_command: !include_dir_merge_named rest_command
 binary_sensor: !include_dir_merge_list binary_sensor
 notify: !include_dir_merge_list notify
 tts: !include_dir_merge_list tts
