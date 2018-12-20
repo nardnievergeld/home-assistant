@@ -17,3 +17,4 @@ cards:
     refresh_interval: 5
     entities:
       - sensor.power_consumption
+      - sensor.hourly_gas_consumption
