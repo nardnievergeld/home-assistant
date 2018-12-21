@@ -52,6 +52,9 @@ recorder:
 # Enables a map showing the location of tracked devices
 map:
 
+# Enable the device tracker
+device_tracker:
+
 # ----------------------------------------------------
 # HTTP
 # ----------------------------------------------------

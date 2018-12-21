@@ -1,0 +1,12 @@
+  - platform: template
+    sensors:
+      battery_lenovo:
+        friendly_name: Lenovo Battery
+        unit_of_measurement: '%'
+        value_template: >-
+            {%- if states.device_tracker.PHONE_DEVICEID.attributes.battery %}
+                {{ states.device_tracker.PHONE_DEVICEID.attributes.battery|round }}
+            {% else %}
+                {{ states.sensor.battery_samsung.state }}
+            {%- endif %}
+        device_class: battery
