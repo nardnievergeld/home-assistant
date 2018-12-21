@@ -13,7 +13,7 @@ cards:
     - type: custom:group-card
       card:
         type: entities
-        title: Weather
+        title: Telefoon
         columns: 6
       group: group.phone
     - type: custom:gauge-card
