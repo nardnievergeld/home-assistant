@@ -10,6 +10,12 @@ cards:
         title: Weather
         columns: 6
       group: group.weather_home
+    - type: custom:group-card
+      card:
+        type: entities
+        title: Weather
+        columns: 6
+      group: group.phone
     - type: custom:gauge-card
       min: 0
       max: 1

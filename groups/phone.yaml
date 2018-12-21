@@ -1,0 +1,8 @@
+phone:
+  name: Phone
+  view: true
+  entities:
+    - sensor.lenovo_p2__battery_sensor
+    - sensor.lenovo_p2__light_sensor
+    - sensor.lenovo_p2__step_counter_sensor
+    - sensor.lenovo_p2__wifi_sensor
