@@ -68,6 +68,7 @@ http:
 # Message brokers
 # ----------------------------------------------------
 mqtt:
+    discovery: true
     broker: localhost
     port: 1885
     username: !secret username
