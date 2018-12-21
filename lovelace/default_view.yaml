@@ -1,20 +1,24 @@
 title: default_view
 icon: mdi:home
 cards:
-  - type: custom:group-card
-    card:
-      type: entities
-      title: Weather
-      columns: 13
-    group: group.weather_home
-  - type: custom:gauge-card
-    min: 0
-    max: 1
-    entity: sensor.power_consumption
-  - type: history-graph
-    title: 'Energy consumption'
-    hours_to_show: 48
-    refresh_interval: 5
-    entities:
-      - sensor.power_consumption
-      - sensor.hourly_gas_consumption
+- type: vertical-stack
+  cards:
+    - type: horizontal-stack
+      cards:
+        - type: custom:group-card
+          card:
+            type: entities
+            title: Weather
+            columns: 6
+          group: group.weather_home
+        - type: custom:gauge-card
+          min: 0
+          max: 1
+          entity: sensor.power_consumption
+    - type: history-graph
+      title: 'Energy consumption'
+      hours_to_show: 48
+      refresh_interval: 5
+      entities:
+        - sensor.power_consumption
+        - sensor.hourly_gas_consumption
