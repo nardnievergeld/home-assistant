@@ -1,0 +1,23 @@
+- platform: template
+  sensors:
+      battery_status:
+          friendly_name: "Battery status"
+          value_template: "{{ state_attr('sensor.lenovo_p2__battery_sensor', 'status') }}"
+
+- platform: template
+  sensors:
+      battery_charging:
+          friendly_name: "Battery power"
+          value_template: "{{ state_attr('sensor.lenovo_p2__battery_sensor', 'power') }}"
+
+- platform: template
+  sensors:
+      battery_temperature:
+          friendly_name: "Battery temperature"
+          value_template: "{{ state_attr('sensor.lenovo_p2__battery_sensor', 'temperature') }}"
+          
+- platform: template
+  sensors:
+      battery_voltage:
+          friendly_name: "Battery voltage"
+          value_template: "{{ state_attr('sensor.lenovo_p2__battery_sensor', 'voltage') }}"

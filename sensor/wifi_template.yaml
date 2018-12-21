@@ -1,0 +1,11 @@
+- platform: template
+  sensors:
+      wifi_ssid:
+          friendly_name: "Wifi SSID"
+          value_template: "{{ state_attr('sensor.lenovo_p2__wifi_sensor', 'ssid') }}"
+
+- platform: template
+  sensors:
+      wifi_rssi:
+          friendly_name: "Wifi RSSI"
+          value_template: "{{ state_attr('sensor.lenovo_p2__wifi_sensor', 'rssi') }}"
