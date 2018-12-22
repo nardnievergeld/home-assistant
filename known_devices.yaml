@@ -1,0 +1,8 @@
+
+lenovo_p2_:
+  hide_if_away: false
+  icon:
+  mac:
+  name: 'Lenovo p2 '
+  picture:
+  track: true

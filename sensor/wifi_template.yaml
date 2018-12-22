@@ -1,11 +1,12 @@
 - platform: template
   sensors:
-      wifi_ssid:
+      phone_wifi_ssid:
           friendly_name: "Wifi SSID"
           value_template: "{{ state_attr('sensor.lenovo_p2__wifi_sensor', 'ssid') }}"
 
 - platform: template
   sensors:
-      wifi_rssi:
+      phone_wifi_rssi1:
           friendly_name: "Wifi RSSI"
-          value_template: "{{ state_attr('sensor.lenovo_p2__wifi_sensor', 'rssi') }}"
+          unit_of_measurement: dBm
+          value_template: "{{ state_attr('sensor.lenovo_p2__wifi_sensor', 'rssi')|int  }}"

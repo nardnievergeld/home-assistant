@@ -6,9 +6,9 @@ phone:
     - sensor.lenovo_p2__light_sensor
     - sensor.lenovo_p2__step_counter_sensor
     - sensor.lenovo_p2__wifi_sensor
-    - sensor.wifi_rssi
-    - sensor.wifi_ssid
-    - sensor.battery_voltage
-    - sensor.battery_status
-    - sensor.battery_temperature
-    - sensor.battery_charging
+    - sensor.phone_wifi_rssi1
+    - sensor.phone_wifi_ssid
+    - sensor.phone_battery_voltage1
+    - sensor.phone_battery_status
+    - sensor.phone_battery_temperature1
+    - sensor.phone_battery_charging

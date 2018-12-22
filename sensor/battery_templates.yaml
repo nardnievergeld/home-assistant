@@ -1,23 +1,25 @@
 - platform: template
   sensors:
-      battery_status:
+      phone_battery_status:
           friendly_name: "Battery status"
           value_template: "{{ state_attr('sensor.lenovo_p2__battery_sensor', 'status') }}"
 
 - platform: template
   sensors:
-      battery_charging:
+      phone_battery_charging:
           friendly_name: "Battery power"
           value_template: "{{ state_attr('sensor.lenovo_p2__battery_sensor', 'power') }}"
 
 - platform: template
   sensors:
-      battery_temperature:
+      phone_battery_temperature1:
           friendly_name: "Battery temperature"
-          value_template: "{{ state_attr('sensor.lenovo_p2__battery_sensor', 'temperature') }}"
+          unit_of_measurement: "°C"
+          value_template: "{{ state_attr('sensor.lenovo_p2__battery_sensor', 'temperature')|float  }}"
           
 - platform: template
   sensors:
-      battery_voltage:
+      phone_battery_voltage1:
           friendly_name: "Battery voltage"
-          value_template: "{{ state_attr('sensor.lenovo_p2__battery_sensor', 'voltage') }}"
+          unit_of_measurement: "mV"
+          value_template: "{{ state_attr('sensor.lenovo_p2__battery_sensor', 'voltage')|replace(' mV', '')|float  }}"
