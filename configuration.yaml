@@ -85,18 +85,18 @@ mqtt:
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
 
-google_assistant:
-    project_id: hass-io-skill
-    client_id: !secret google_assistant_client_id 
-    access_token: !secret google_assistant_access_token
-    api_key: !secret google_assistant_api_key
-    agent_user_id: !secret google_assistant_agent_user_id
-    exposed_domains:
-      - switch
-      - light
-      - group
-      - media_player
-      - scene
+        #google_assistant:
+        #project_id: hass-io-skill
+        #client_id: !secret google_assistant_client_id 
+        #access_token: !secret google_assistant_access_token
+        #api_key: !secret google_assistant_api_key
+        #agent_user_id: !secret google_assistant_agent_user_id
+        #exposed_domains:
+        #- switch
+        #- light
+        #- group
+        #- media_player
+        #- scene
 
 # ----------------------------------------------------
 # External automation
