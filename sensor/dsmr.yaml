@@ -2,4 +2,3 @@
   host: !secret ser2net_host
   port: 2001
   dsmr_version: 5
-  dsmr_version: 5
