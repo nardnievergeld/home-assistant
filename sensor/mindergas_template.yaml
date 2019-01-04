@@ -1,6 +1,6 @@
 - platform: template
   sensors:
       minder_gas_datum:
-          entity_id: sensor.time__date
+          entity_id: sensor.time
           friendly_name: "Datum minder gas"
           value_template: "{{ as_timestamp(now()) | timestamp_custom('%Y-%m-%d', True) }}"
