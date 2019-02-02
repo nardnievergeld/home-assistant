@@ -2,6 +2,7 @@
     sensors:
       battery_lenovo:
         friendly_name: Lenovo Battery
+        entity_id: device_tracker.PHONE_DEVICEID
         unit_of_measurement: '%'
         value_template: >-
             {%- if states.device_tracker.PHONE_DEVICEID.attributes.battery %}
