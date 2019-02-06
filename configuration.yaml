@@ -60,7 +60,6 @@ device_tracker:
 # ----------------------------------------------------
 http:
     # Secrets are defined in the file secrets.yaml
-    api_password: !secret api_password 
     # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
     base_url: !secret base_url
     ssl_certificate: !secret ssl_cert

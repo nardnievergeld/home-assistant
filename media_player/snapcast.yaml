@@ -1,2 +1,2 @@
-- platform: snapcast
-  host: localhost
+#- platform: snapcast
+#  host: localhost

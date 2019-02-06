@@ -1,0 +1,6 @@
+- platform: template
+  sensors:
+    energieverbruik:
+      value_template: '{{(states.sensor.power_production.state | float ) - (states.sensor.growatt.state | float)}}'
+      friendly_name: “Energieverbruik”
+      unit_of_measurement: kW
