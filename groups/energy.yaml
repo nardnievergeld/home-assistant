@@ -15,3 +15,5 @@ energie:
     - sensor.power_consumption_normal
     - sensor.power_consumption_low
     - sensor.power_production
+    - sensor.energieverbruik
+    - sensor.growatt
