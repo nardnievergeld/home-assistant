@@ -19,6 +19,10 @@ energie:
     - sensor.daily_gas
     - sensor.daily_power_low
     - sensor.daily_power_normal
+    - sensor.daily_production_low
+    - sensor.daily_production_normal
     - sensor.monthly_gas
     - sensor.monthly_power_low
     - sensor.monthly_power_normal
+    - sensor.monthly_production_low
+    - sensor.monthly_production_normal
