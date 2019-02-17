@@ -1,14 +1,14 @@
 weather_home:
   name: Weer thuis
   entities:
-    - sensor.br_symbol
-    - sensor.br_temperature
-    - sensor.br_precipitation
-    - sensor.br_precipitation_forecast_total
-    - sensor.br_humidity
-    - sensor.br_wind_speed
-    - sensor.br_wind_direction
-    - sensor.br_visibility
-    - sensor.br_pressure
-    - sensor.br_irradiance
-    - sensor.br_ground_temperature
+    - sensor.br_symbol_2
+    - sensor.br_temperature_2
+    - sensor.br_precipitation_2
+    - sensor.br_precipitation_forecast_total_2
+    - sensor.br_humidity_2
+    - sensor.br_wind_speed_2
+    - sensor.br_wind_direction_2
+    - sensor.br_visibility_2
+    - sensor.br_pressure_2
+    - sensor.br_irradiance_2
+    - sensor.br_ground_temperature_2

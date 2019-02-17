@@ -119,6 +119,7 @@ upnp:
 # ----------------------------------------------------
 automation: !include automations.yaml
 script: !include scripts.yaml
+utility_meter: !include utility_meter.yaml
 
 group: !include_dir_merge_named groups
 sensor: !include_dir_merge_list sensor

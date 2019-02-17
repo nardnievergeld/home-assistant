@@ -5,7 +5,6 @@ energie:
   entities:
     - sensor.gas_consumption
     - sensor.hourly_gas_consumption
-    - sensor.long_power_failure_count
     - sensor.power_consumption
     - sensor.power_consumption_phase_l1
     - sensor.power_consumption_phase_l2
@@ -17,3 +16,9 @@ energie:
     - sensor.power_production
     - sensor.energieverbruik
     - sensor.growatt
+    - sensor.daily_gas
+    - sensor.daily_power_low
+    - sensor.daily_power_normal
+    - sensor.monthly_gas
+    - sensor.monthly_power_low
+    - sensor.monthly_power_normal
