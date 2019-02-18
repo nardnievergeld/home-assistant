@@ -10,6 +10,7 @@ energie:
     - sensor.energieverbruik
     - sensor.solar_efficiency
     - sensor.growatt
+    - sensor.daily_growatt 
     - sensor.daily_gas
     - sensor.daily_consumption_peak
     - sensor.daily_production_peak
