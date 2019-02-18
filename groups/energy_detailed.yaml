@@ -1,0 +1,28 @@
+energie:
+  name: EnergieDetailed
+  view: true
+  icon: mdi:lightbulb-on-outline
+  entities:
+    - sensor.gas_consumption
+    - sensor.hourly_gas_consumption
+    - sensor.power_consumption
+    - sensor.power_consumption_phase_l1
+    - sensor.power_consumption_phase_l2
+    - sensor.power_consumption_phase_l3
+    - sensor.power_production_normal
+    - sensor.power_production_low
+    - sensor.power_consumption_normal
+    - sensor.power_consumption_low
+    - sensor.power_production
+    - sensor.energieverbruik
+    - sensor.growatt
+    - sensor.daily_gas
+    - sensor.daily_power_low
+    - sensor.daily_power_normal
+    - sensor.daily_production_low
+    - sensor.daily_production_normal
+    - sensor.monthly_gas
+    - sensor.monthly_power_low
+    - sensor.monthly_power_normal
+    - sensor.monthly_production_low
+    - sensor.monthly_production_normal

@@ -3,13 +3,13 @@
     energy_production_total:
       friendly_name: "Production Total"
       unit_of_measurement: 'kWh'
-      value_template: "{{ ((states.sensor.power_production_low.state | float) + (states.sensor.power_production_normal.state | float)) | round(3) }}"
+      value_template: "{% if (states.sensor.power_production_low.state != 'unknown') %} {{ ((states.sensor.power_production_low.state | float) + (states.sensor.power_production_normal.state | float)) | round(3) }} {% endif %}"
 - platform: template
   sensors:
     energy_consumption_total:
       friendly_name: "Consumption Total"
       unit_of_measurement: 'kWh'
-      value_template: "{{ ((states.sensor.power_consumption_low.state | float) + (states.sensor.power_consumption_normal.state | float)) | round(3) }}"
+      value_template: "{% if (states.sensor.power_consumption_low.state != 'unknown') %} {{ ((states.sensor.power_consumption_low.state | float) + (states.sensor.power_consumption_normal.state | float)) | round(3) }} {% endif %}"
 - platform: template
   sensors:
     energy_netto_consumption:
