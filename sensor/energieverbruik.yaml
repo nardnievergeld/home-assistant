@@ -1,6 +1,6 @@
 - platform: template
   sensors:
     energieverbruik:
-      value_template: '{{(states.sensor.growatt.state | float ) - (states.sensor.power_production.state | float)}}'
+      value_template: '{{ ((states.sensor.growatt.state | float ) - (states.sensor.power_production.state | float)) | round(3)}}'
       friendly_name: Usage of solarenergy
       unit_of_measurement: kW

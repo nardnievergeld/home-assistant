@@ -13,6 +13,16 @@
   daily_production_normal:
     source: sensor.power_production_normal
     cycle: daily
+  daily_production:
+    source: sensor.energy_production_total
+    cycle: daily
+    tariffs:
+      - peak
+  daily_consumption:
+    source: sensor.energy_consumption_total
+    cycle: daily
+    tariffs:
+      - peak
   monthly_power_low:
     source: sensor.power_consumption_low
     cycle: monthly
@@ -28,3 +38,13 @@
   monthly_production_normal:
     source: sensor.power_production_normal
     cycle: monthly
+  monthly_production:
+    source: sensor.energy_production_total
+    cycle: monthly
+    tariffs:
+      - peak
+  monthly_consumption:
+    source: sensor.energy_consumption_total
+    cycle: monthly
+    tariffs:
+      - peak

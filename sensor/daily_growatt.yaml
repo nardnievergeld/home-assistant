@@ -1,0 +1,6 @@
+- platform: template
+  sensors:
+      daily_growatt:
+          friendly_name: "Daily generation"
+          unit_of_measurement: 'kWh'
+          value_template: "{{ state_attr('sensor.growatt', 'power_generation') }}"
