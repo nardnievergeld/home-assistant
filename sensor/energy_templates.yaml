@@ -18,7 +18,7 @@
       value_template: "{{ ((states.sensor.daily_consumption_peak.state | float) - (states.sensor.daily_production_peak.state | float )) | round(3) }}"
 - platform: template
   sensors:
-    energy_netto_consumption:
+    monthly_energy_netto_consumption:
       friendly_name: "Netto consumption monthly"
       unit_of_measurement: 'kWh'
       value_template: "{{ ((states.sensor.monthly_consumption_peak.state | float) - (states.sensor.monthly_production_peak.state | float )) | round(3) }}"

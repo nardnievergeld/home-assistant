@@ -7,6 +7,7 @@ energie:
     - sensor.power_consumption
     - sensor.power_production
     - sensor.energy_netto_consumption
+    - sensor.monthly_energy_netto_consumption
     - sensor.energieverbruik
     - sensor.solar_efficiency
     - sensor.growatt
@@ -17,3 +18,7 @@ energie:
     - sensor.monthly_gas
     - sensor.monthly_consumption_peak
     - sensor.monthly_production_peak
+    - sensor.yesterday_growatt
+    - sensor.yesterday_energy_consumption
+    - sensor.yesterday_energy_netto
+    - sensor.yesterday_energy_production

@@ -1,0 +1,28 @@
+- platform: template
+  sensors:
+    yesterday_growatt:
+      friendly_name: "Yesterday energy generation"
+      entity_id: []
+      unit_of_measurement: 'kWh'
+      value_template: "{{ states.sensor.daily_growatt.state }}"
+- platform: template
+  sensors:
+    yesterday_energy_production:
+      friendly_name: "Yesterday production"
+      entity_id: []
+      unit_of_measurement: 'kWh'
+      value_template: "{{ states.sensor.daily_production_peak.state }}"
+- platform: template
+  sensors:
+    yesterday_energy_consumption:
+      friendly_name: "Yesterday consumption"
+      entity_id: []
+      unit_of_measurement: 'kWh'
+      value_template: "{{ states.sensor.daily_consumption_peak.state }}"
+- platform: template
+  sensors:
+    yesterday_energy_netto:
+      friendly_name: "Yesterday netto"
+      entity_id: []
+      unit_of_measurement: 'kWh'
+      value_template: "{{ states.sensor.energy_netto_consumption.state }}"
