@@ -22,3 +22,4 @@ energie:
     - sensor.yesterday_energy_consumption
     - sensor.yesterday_energy_netto
     - sensor.yesterday_energy_production
+    - sensor.daily_gas
