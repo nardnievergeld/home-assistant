@@ -1,2 +1,1 @@
-- platform: google
-  language: 'nl'
+- platform: google_translate

@@ -3,4 +3,4 @@
     daily_solar_usage:
       friendly_name: "Solar usage daily"
       unit_of_measurement: 'kWh'
-      value_template: "{{ ((states.sensor.daily_growatt.state | float ) -  ( states.sensor.daily_production_peak.state | float)) | float | round(3) }}"
+      value_template: "{{ ((states.sensor.growatt_total_energy_today | float ) -  ( states.sensor.daily_production_peak.state | float)) | float | round(3) }}"

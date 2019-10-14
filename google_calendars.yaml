@@ -1,0 +1,49 @@
+
+- cal_id: nvo4nsstvtc3ktjket92b0oeho@group.calendar.google.com
+  entities:
+  - device_id: stage
+    ignore_availability: true
+    name: Stage
+    track: false
+
+- cal_id: nardnievergeld@gmail.com
+  entities:
+  - device_id: nard_nievergeld
+    ignore_availability: true
+    name: nard Nievergeld
+    track: false
+
+- cal_id: '#contacts@group.v.calendar.google.com'
+  entities:
+  - device_id: contacts
+    ignore_availability: true
+    name: Contacts
+    track: false
+
+- cal_id: nl.dutch#holiday@group.v.calendar.google.com
+  entities:
+  - device_id: feestdagen_in_nederland
+    ignore_availability: true
+    name: Feestdagen in Nederland
+    track: false
+
+- cal_id: p#weather@group.v.calendar.google.com
+  entities:
+  - device_id: weather
+    ignore_availability: true
+    name: Weather
+    track: false
+
+- cal_id: 7le01sic9pifl5qahtsulampq4@group.calendar.google.com
+  entities:
+  - device_id: verwarming_calendar
+    ignore_availability: true
+    name: Verwarming
+    track: true
+
+- cal_id: addressbook#contacts@group.v.calendar.google.com
+  entities:
+  - device_id: contacts
+    ignore_availability: true
+    name: Contacts
+    track: false

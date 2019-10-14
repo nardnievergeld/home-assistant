@@ -4,7 +4,7 @@
       friendly_name: "Yesterday energy generation"
       entity_id: []
       unit_of_measurement: 'kWh'
-      value_template: "{{ states.sensor.daily_growatt.state }}"
+      value_template: "{{ states.sensor.growatt_total_energy_today.state }}"
 - platform: template
   sensors:
     yesterday_energy_production:

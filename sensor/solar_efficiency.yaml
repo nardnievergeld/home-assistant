@@ -9,4 +9,4 @@
     solar_efficiency:
       friendly_name: "Solar Efficiency"
       unit_of_measurement: '%'
-      value_template: "{{ ((100 * states. sensor.growatt.state | float) / states.sensor.solar_energy_from_sun.state | float) | round(2) }}"
+      value_template: "{{ ((100 * states.sensor.growatt_total_output_power | float) / states.sensor.solar_energy_from_sun.state | float) | round(2) }}"

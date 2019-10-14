@@ -10,8 +10,8 @@ energie:
     - sensor.monthly_energy_netto_consumption
     - sensor.energieverbruik
     - sensor.solar_efficiency
-    - sensor.growatt
-    - sensor.daily_growatt 
+    - sensor.growatt_total_output_power
+    - sensor.growatt_total_energy_today
     - sensor.daily_gas
     - sensor.daily_consumption_peak
     - sensor.daily_production_peak

@@ -1,4 +1,4 @@
-energie:
+energie_detailed:
   name: EnergieDetailed
   view: true
   icon: mdi:lightbulb-on-outline
@@ -15,7 +15,7 @@ energie:
     - sensor.power_consumption_low
     - sensor.power_production
     - sensor.energieverbruik
-    - sensor.growatt
+    - sensor.growatt_total_output_power
     - sensor.daily_gas
     - sensor.daily_power_low
     - sensor.daily_power_normal
