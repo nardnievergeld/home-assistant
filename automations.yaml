@@ -19,3 +19,55 @@
       entity_id: sensor.yesterday_energy_consumption, sensor.yesterday_energy_netto,sensor.yesterday_energy_production,
         sensor.yesterday_growatt, sensor.daily_gas
     service: homeassistant.update_entity
+- id: '1572807017314'
+  alias: Nieuwe automatisering
+  description: ''
+  trigger:
+  - at: 00:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: timer.werktijd
+    service: timer.cancel
+- id: '1572807441074'
+  alias: Start werktimer
+  description: ''
+  trigger:
+  - payload: '1'
+    platform: mqtt
+    topic: Wifi werk
+  condition: []
+  action:
+  - data:
+      entity_id: timer.werktijd
+    service: timer.start
+- id: '1572807512954'
+  alias: Pauze werktijd
+  description: ''
+  trigger:
+  - payload: '0'
+    platform: mqtt
+    topic: Wifi werk
+  condition: []
+  action:
+  - data:
+      entity_id: timer.werktijd
+    service: timer.pause
+- id: '1572807861692'
+  alias: Werktijd klaar
+  description: ''
+  trigger:
+  - event_data: {}
+    event_type: timer.finished
+    platform: event
+  condition: []
+  action:
+  - data:
+      payload: 1
+      qos: 2
+      topic: werktijd_klaar
+    service: mqtt.publish
+  - data:
+      message: Tijd om naar huis te gaan.
+    service: notify.pushbullet

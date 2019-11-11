@@ -84,7 +84,7 @@ mqtt:
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
 
-        #google_assistant:
+        #google_assistant
         #project_id: hass-io-skill
         #client_id: !secret google_assistant_client_id 
         #access_token: !secret google_assistant_access_token
@@ -97,6 +97,9 @@ conversation:
         #- media_player
         #- scene
 
+google_assistant:
+    project_id: home-assistant-255919
+    api_key: AIzaSyBqPr8j-HdQQYVuo0K6C2FB9TFWufJq2Go
 # ----------------------------------------------------
 # External automation
 # ----------------------------------------------------
@@ -132,6 +135,7 @@ utility_meter: !include utility_meter.yaml
 
 group: !include_dir_merge_named groups
 sensor: !include_dir_merge_list sensor
+timer: !include_dir_merge_named timer
 input_number: !include_dir_merge_list input_number
 switch: !include_dir_merge_list switch
 media_player: !include_dir_merge_list media_player

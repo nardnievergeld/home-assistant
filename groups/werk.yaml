@@ -1,0 +1,6 @@
+werk:
+  name: Werk
+  view: true
+  icon: mdi:briefcase-outline
+  entities:
+    -  timer.werktijd

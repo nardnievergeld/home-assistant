@@ -1,0 +1,8 @@
+  - platform: mqtt
+    name: "Wifi Thuis"
+    state_topic: "Wifi thuis"
+  - platform: mqtt
+    name: "Wifi werk"
+    qos: 2
+    force_update: true
+    state_topic: "Wifi werk"
