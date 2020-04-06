@@ -45,15 +45,29 @@ logbook:
 history:
 
 recorder:
-    purge_interval: 2
-    purge_keep_days: 5
-
+    db_url: mysql://hass:2873nard@localhost/hass_db?charset=utf8
 
 # Enables a map showing the location of tracked devices
 map:
 
 # Enable the device tracker
 device_tracker:
+
+# ----------------------------------------------------
+# Glances
+# ----------------------------------------------------
+glances:
+
+# ----------------------------------------------------
+# History
+# ----------------------------------------------------
+history_graph:
+  monthly_graphs:
+    name: Monthly Graph
+    entities:
+      - sensor.monthly_gas
+      - sensor.monthly_energy_netto_consumption
+    hours_to_show: 744
 
 # ----------------------------------------------------
 # HTTP
@@ -65,6 +79,14 @@ http:
     ssl_certificate: !secret ssl_cert
     ssl_key: !secret ssh_key 
 
+# ----------------------------------------------------
+# Ecovacs
+# ----------------------------------------------------
+deebot:
+  username: !secret ecovacs_username
+  password: !secret ecovacs_password
+  country: !secret ecovacs_countrycode
+  continent: !secret ecovacs_continent
 
 # ----------------------------------------------------
 # Message brokers
@@ -126,6 +148,15 @@ sun:
 upnp:
     port_mapping: false
 
+lovelace:
+    mode: yaml
+    resources:
+    - url: /local/custom-lovelace/group-card/group-card.js?v=1
+      type: js
+    - url: /local/custom-lovelace/gauge-card/gauge-card.js?v=1
+      type: js
+
+    
 # ----------------------------------------------------
 # Configuration subdirectories/files
 # ----------------------------------------------------

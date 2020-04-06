@@ -1,0 +1,12 @@
+{
+  "domain": "deebot",
+  "name": "Deebot",
+  "documentation": "https://www.home-assistant.io/integrations/ecovacs",
+  "requirements": [
+    "ozmo==1.0.3"
+  ],
+  "dependencies": [],
+  "codeowners": [
+    "@OverloadUT"
+  ]
+}

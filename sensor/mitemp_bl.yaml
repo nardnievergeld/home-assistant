@@ -1,0 +1,12 @@
+#  - platform: mitemp_bt
+#    mac: '58:2D:34:35:F0:19'
+#    timeout: 60
+#    retries: 5i
+#
+  - platform: mitemp_bt
+    rounding: True
+    decimals: 1
+    period: 60
+    log_spikes: False
+    use_median: False
+    active_scan: False

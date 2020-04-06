@@ -16,10 +16,6 @@ cards:
         title: Telefoon
         columns: 6
       group: group.phone
-    - type: custom:gauge-card
-      min: 0
-      max: 1
-      entity: sensor.power_consumption
     - type: history-graph
       title: 'Energy consumption'
       hours_to_show: 48
