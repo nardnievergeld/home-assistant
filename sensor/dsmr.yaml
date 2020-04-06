@@ -10,13 +10,6 @@
   state_topic: "sensors/power/p1meter/delivered_high_tarif"
   value_template: "{{ value|float / 1000 }}"
 
-- platform: template
-   sensors:
-      powermon_totalsolar:
-        friendly_name: "P1 Delivery Total"
-        value_template: "{{ states('sensor.p1_delivery_low_tarif') | float + states('sensor.p1_delivery_high_tarif') | float }}"
-        unit_of_measurement: 'kWh'
-
 - platform: mqtt
   name: P1 Actual Power Delivery
   unit_of_measurement: 'kW'
@@ -34,13 +27,6 @@
   unit_of_measurement: 'kWh'
   state_topic: "sensors/power/p1meter/consumption_high_tarif"
   value_template: "{{ value|float / 1000 }}"
-
-- platform: template
-   sensors:
-      powermon_totalsolar:
-        friendly_name: "P1 Consumption Total"
-        value_template: "{{ states('sensor.consumption_low_tarif') | float + states('sensor.consumption_high_tarif') | float }}"
-        unit_of_measurement: 'kWh'
 
 - platform: mqtt
   name: P1 Actual Power Consumption
