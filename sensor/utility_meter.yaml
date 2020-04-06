@@ -8,3 +8,21 @@ utility_meter:
   yearly_growatt:
     source: sensor.growatt_total_lifetime_energy_output
     cycle: yearly
+  daily_consumption:
+    source: sensor.consumption_total
+    cycle: daily
+  montly_consumption:
+    source: sensor.consumption_total
+    cycle: montly
+  yearly_consumption:
+    source: sensor.consumption_total
+    cycle: yearly
+  daily_delivery:
+    source: sensor.delivery_total
+    cycle: daily
+  montly_delivery:
+    source: sensor.delivery_total
+    cycle: montly
+  yearly_delivery:
+    source: sensor.delivery_total
+    cycle: yearly
