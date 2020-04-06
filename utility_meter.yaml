@@ -1,50 +1,36 @@
-  daily_power_low:
-    source: sensor.power_consumption_low
+  daily_growatt:
+    source: sensor.growatt_total_lifetime_energy_output
     cycle: daily
-  daily_power_normal:
-    source: sensor.power_consumption_normal
-    cycle: daily
-  daily_gas:
-    source: sensor.gas_consumption
-    cycle: daily
-  daily_production_low:
-    source: sensor.power_production_low
-    cycle: daily
-  daily_production_normal:
-    source: sensor.power_production_normal
-    cycle: daily
-  daily_production:
-    source: sensor.energy_production_total
-    cycle: daily
-    tariffs:
-      - peak
+  montly_growatt:
+    source: sensor.growatt_total_lifetime_energy_output
+    cycle: montly
+  yearly_growatt:
+    source: sensor.growatt_total_lifetime_energy_output
+    cycle: yearly
   daily_consumption:
-    source: sensor.energy_consumption_total
+    source: sensor.consumption_total
     cycle: daily
-    tariffs:
-      - peak
-  monthly_power_low:
-    source: sensor.power_consumption_low
-    cycle: monthly
-  monthly_power_normal:
-    source: sensor.power_consumption_normal
-    cycle: monthly
-  monthly_gas:
-    source: sensor.gas_consumption
-    cycle: monthly
-  monthly_production_low:
-    source: sensor.power_production_low
-    cycle: monthly
-  monthly_production_normal:
-    source: sensor.power_production_normal
-    cycle: monthly
-  monthly_production:
-    source: sensor.energy_production_total
-    cycle: monthly
-    tariffs:
-      - peak
-  monthly_consumption:
-    source: sensor.energy_consumption_total
-    cycle: monthly
-    tariffs:
-      - peak
+  montly_consumption:
+    source: sensor.consumption_total
+    cycle: montly
+  yearly_consumption:
+    source: sensor.consumption_total
+    cycle: yearly
+  daily_delivery:
+    source: sensor.delivery_total
+    cycle: daily
+  montly_delivery:
+    source: sensor.delivery_total
+    cycle: montly
+  yearly_delivery:
+    source: sensor.delivery_total
+    cycle: yearly
+  daily_gas:
+    source: sensor.p1_gas_usage
+    cycle: daily
+  montly_gas:
+    source: sensor.p1_gas_usage
+    cycle: montly
+  yearly_gas:
+    source: sensor.p1_gas_usage
+    cycle: yearly
