@@ -1,36 +1,36 @@
   daily_growatt:
     source: sensor.growatt_total_lifetime_energy_output
     cycle: daily
-  montly_growatt:
+  monthly_growatt:
     source: sensor.growatt_total_lifetime_energy_output
-    cycle: montly
+    cycle: monthly
   yearly_growatt:
     source: sensor.growatt_total_lifetime_energy_output
     cycle: yearly
   daily_consumption:
     source: sensor.consumption_total
     cycle: daily
-  montly_consumption:
+  monthly_consumption:
     source: sensor.consumption_total
-    cycle: montly
+    cycle: monthly
   yearly_consumption:
     source: sensor.consumption_total
     cycle: yearly
   daily_delivery:
     source: sensor.delivery_total
     cycle: daily
-  montly_delivery:
+  monthly_delivery:
     source: sensor.delivery_total
-    cycle: montly
+    cycle: monthly
   yearly_delivery:
     source: sensor.delivery_total
     cycle: yearly
   daily_gas:
     source: sensor.p1_gas_usage
     cycle: daily
-  montly_gas:
+  monthly_gas:
     source: sensor.p1_gas_usage
-    cycle: montly
+    cycle: monthly
   yearly_gas:
     source: sensor.p1_gas_usage
     cycle: yearly
