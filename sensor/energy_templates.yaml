@@ -2,7 +2,7 @@
   sensors:
     consumption_total:
       friendly_name: "P1 Consumption Total"
-      value_template: "{{ states('sensor.consumption_low_tarif') | float + states('sensor.consumption_high_tarif') | float }}"
+      value_template: "{{ states('sensor.p1_consumption_low_tarif') | float + states('sensor.p1_consumption_high_tarif') | float }}"
       unit_of_measurement: 'kWh'
 - platform: template
   sensors:
