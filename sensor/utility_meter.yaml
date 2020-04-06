@@ -1,0 +1,10 @@
+utility_meter:
+  daily_growatt:
+    source: sensor.growatt_total_lifetime_energy_output
+    cycle: daily
+  montly_growatt:
+    source: sensor.growatt_total_lifetime_energy_output
+    cycle: montly
+  yearly_growatt:
+    source: sensor.growatt_total_lifetime_energy_output
+    cycle: yearly
