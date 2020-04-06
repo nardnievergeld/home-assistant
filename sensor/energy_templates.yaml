@@ -12,13 +12,19 @@
       unit_of_measurement: 'kWh'
 - platform: template
   sensors:
-    energy_netto_consumption:
+    daily_netto_total:
       friendly_name: "Netto consumption daily"
       unit_of_measurement: 'kWh'
-      value_template: "{{ ((states.sensor.daily_consumption_peak.state | float) - (states.sensor.daily_production_peak.state | float )) | round(3) }}"
+      value_template: "{{ states('sensor.daily_consumption') | float + states('sensor.daily_delivery') | float }}"
 - platform: template
   sensors:
-    monthly_energy_netto_consumption:
-      friendly_name: "Netto consumption monthly"
+    monthly_netto_total:
+      friendly_name: "Netto consumption Monthly"
       unit_of_measurement: 'kWh'
-      value_template: "{{ ((states.sensor.monthly_consumption_peak.state | float) - (states.sensor.monthly_production_peak.state | float )) | round(3) }}"
+      value_template: "{{ states('sensor.monthly_consumption') | float + states('sensor.monthly_delivery') | float }}"
+- platform: template
+  sensors:
+    yearly_netto_total:
+      friendly_name: "Netto consumption Yearly"
+      unit_of_measurement: 'kWh'
+      value_template: "{{ states('sensor.yearly_consumption') | float + states('sensor.yearly_delivery') | float }}"
