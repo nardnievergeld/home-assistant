@@ -149,7 +149,6 @@ upnp:
     port_mapping: false
 
 lovelace:
-    mode: yaml
     resources:
     - url: /local/custom-lovelace/group-card/group-card.js?v=1
       type: js

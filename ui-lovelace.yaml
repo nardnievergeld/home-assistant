@@ -1,9 +1,0 @@
-title: Home
-views:
-  - !include lovelace/default_view.yaml
-
-resources:
-  - url: /local/custom-lovelace/group-card/group-card.js?v=1
-    type: js
-  - url: /local/custom-lovelace/gauge-card/gauge-card.js?v=1
-    type: js
