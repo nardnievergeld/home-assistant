@@ -46,5 +46,5 @@
   sensors:
     actual_energy:
       friendly_name: "Actual used or delivered energy"
-      unit_of_measurement: 'kWh'
+      unit_of_measurement: 'kW'
       value_template: "{{ (( states('sensor.p1_actual_power_consumption') | float - states('sensor.p1_actual_power_delivery') | float )) | round(3) }}"
