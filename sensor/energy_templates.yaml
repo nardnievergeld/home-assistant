@@ -21,10 +21,10 @@
     monthly_netto_total:
       friendly_name: "Netto consumption Monthly"
       unit_of_measurement: 'kWh'
-      value_template: "{{ states('sensor.monthly_consumption') | float + states('sensor.monthly_delivery') | float }}"
+      value_template: "{{ states('sensor.monthly_consumption') | float - states('sensor.monthly_delivery') | float }}"
 - platform: template
   sensors:
     yearly_netto_total:
       friendly_name: "Netto consumption Yearly"
       unit_of_measurement: 'kWh'
-      value_template: "{{ states('sensor.yearly_consumption') | float + states('sensor.yearly_delivery') | float }}"
+      value_template: "{{ states('sensor.yearly_consumption') | float - states('sensor.yearly_delivery') | float }}"
