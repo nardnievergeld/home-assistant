@@ -12,6 +12,12 @@
       unit_of_measurement: 'kWh'
 - platform: template
   sensors:
+    energy_netto_total:
+      friendly_name: "Netto total energy used"
+      unit_of_measurement: 'kWh'
+      value_template: "{{ (( states('sensor.consumption_total') | float - states('sensor.delivery_total') | float )) | round(3) }}"
+- platform: template
+  sensors:
     daily_netto_total:
       friendly_name: "Netto consumption daily"
       unit_of_measurement: 'kWh'
