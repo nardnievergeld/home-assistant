@@ -15,7 +15,7 @@
     daily_netto_total:
       friendly_name: "Netto consumption daily"
       unit_of_measurement: 'kWh'
-      value_template: "{{ (( states('sensor.daily_consumption') | float + states('sensor.daily_delivery') | float )) | round(3) }}"
+      value_template: "{{ (( states('sensor.daily_consumption') | float - states('sensor.daily_delivery') | float )) | round(3) }}"
 - platform: template
   sensors:
     monthly_netto_total:
