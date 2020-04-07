@@ -1,0 +1,4 @@
+- platform: derivative
+  name: Usage by House
+  source: sensor.usage_by_house_total
+  unit: kW
