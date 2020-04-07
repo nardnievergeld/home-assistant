@@ -18,6 +18,14 @@
       value_template: "{{ (( states('sensor.consumption_total') | float - states('sensor.delivery_total') | float )) | round(3) }}"
 - platform: template
   sensors:
+    usage_by_house_total:
+      friendly_name: "Consumed by Home"
+      unit_of_measurement: 'kWh'
+      value_template: "{{ (( states('sensor.energy_netto_total') | float - states('sensor.delivery_total') | float + states('sensor.growatt_total_lifetime_energy_output') | float)) | round(3) }}"
+      entity_id: 
+       - sensor.growatt_total_lifetime_energy_output
+- platform: template
+  sensors:
     daily_netto_total:
       friendly_name: "Netto consumption daily"
       unit_of_measurement: 'kWh'
