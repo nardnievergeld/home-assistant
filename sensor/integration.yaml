@@ -1,5 +1,5 @@
 - platform: integration
   source: sensor.growatt_total_output_power
-  name: energy_spent
+  name: growatt_integrated
   unit_prefix: k
   round: 3
