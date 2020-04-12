@@ -164,6 +164,7 @@ utility_meter: !include utility_meter.yaml
 
 group: !include_dir_merge_named groups
 sensor: !include_dir_merge_list sensor
+climate: !include_dir_merge_list climate
 timer: !include_dir_merge_named timer
 input_number: !include_dir_merge_list input_number
 switch: !include_dir_merge_list switch

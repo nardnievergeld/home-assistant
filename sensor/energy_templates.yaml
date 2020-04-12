@@ -23,7 +23,7 @@
       unit_of_measurement: 'kWh'
       value_template: "{{ (( states('sensor.energy_netto_total') | float + states('sensor.growatt_integrated') | float)) | round(3) }}"
       entity_id: 
-       - sensor.growatt_total_lifetime_energy_output
+       - sensor.growatt_integrated
 - platform: template
   sensors:
     daily_netto_total:
