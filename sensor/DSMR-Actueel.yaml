@@ -47,37 +47,37 @@
   name: "Power Delivered l1"
   state_topic: "DSMR-WS/JSON/power_delivered_l1" 
   unit_of_measurement: "Watt"
-  value_template: '{{ value_json.power_delivered_l1[0].value | round(1) }}'
+  value_template: '{{ value_json.power_delivered_l1[0].value | round(3) }}'
 
 - platform: mqtt
   name: "Power Delivered l2"
   state_topic: "DSMR-WS/JSON/power_delivered_l2" 
   unit_of_measurement: "Watt"
-  value_template: '{{ value_json.power_delivered_l2[0].value | round(1) }}'
+  value_template: '{{ value_json.power_delivered_l2[0].value | round(3) }}'
 
 - platform: mqtt
   name: "Power Delivered l3"
   state_topic: "DSMR-WS/JSON/power_delivered_l3" 
   unit_of_measurement: "Watt"
-  value_template: '{{ value_json.power_delivered_l3[0].value | round(1) }}'
+  value_template: '{{ value_json.power_delivered_l3[0].value | round(3) }}'
 
 - platform: mqtt
   name: "Power Returned l1"
   state_topic: "DSMR-WS/JSON/power_returned_l1"
   unit_of_measurement: "Watt"
-  value_template: '{{ value_json.power_returned_l1[0].value | round(1) }}'
+  value_template: '{{ value_json.power_returned_l1[0].value | round(3) }}'
 
 - platform: mqtt
   name: "Power Returned l2"
   state_topic: "DSMR-WS/JSON/power_returned_l2"
   unit_of_measurement: "Watt"
-  value_template: '{{ value_json.power_returned_l2[0].value | round(1) }}'
+  value_template: '{{ value_json.power_returned_l2[0].value | round(3) }}'
 
 - platform: mqtt
   name: "Power Returned l3"
   state_topic: "DSMR-WS/JSON/power_returned_l3"
   unit_of_measurement: "Watt"
-  value_template: '{{ value_json.power_returned_l3[0].value | round(1) }}'
+  value_template: '{{ value_json.power_returned_l3[0].value | round(3) }}'
 
 - platform: mqtt
   name: "Gas Delivered"
