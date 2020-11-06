@@ -1,0 +1,5 @@
+  - platform: command_line
+    name: Data in stream
+    scan_interval: 10
+    command: "timeout 0.5s nc -l -u -p 2001 | xxd || true"
+    value_template: '{{ value | length }}'

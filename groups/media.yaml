@@ -1,6 +1,5 @@
 media:
   name: Media
-  view: true
   icon: mdi:movie
   entities:
     - media_player.kodi

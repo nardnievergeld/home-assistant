@@ -1,0 +1,8 @@
+  - platform: ffmpeg_noise
+    input: rtp://0.0.0.0:2001
+    extra_arguments:  -filter:a highpass=f=300,lowpass=f=2500,volume=30dB
+    #    output: -f mp3 icecast://stream_user:stream_pw@10.0.0.1:8005/babyphone.mp3
+    output: -y -acodec pcm_s16le -ac 2 -ar 48000 -f u16le /tmp/babyphone
+    initial_state: true
+    duration: 3
+    reset: 20

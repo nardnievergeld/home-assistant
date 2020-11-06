@@ -8,3 +8,5 @@ sensor.igd_packets_received:
   hidden: true
 sensor.igd_packets_sent:
   hidden: true
+media_player.10_2_0_3:
+  friendly_name: Kodi

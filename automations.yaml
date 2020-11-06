@@ -71,3 +71,43 @@
   - data:
       message: Tijd om naar huis te gaan.
     service: notify.pushbullet
+- id: '1586287819028'
+  alias: House consumption  when there is no sun
+  description: ''
+  trigger:
+  - minutes: /1
+    platform: time_pattern
+  condition:
+  - condition: state
+    entity_id: sensor.growatt_total_maximum_power
+    state: '0'
+  action:
+  - data: {}
+    entity_id: sensor.usage_by_house_total
+    service: homeassistant.update_entity
+- id: '1586288695566'
+  alias: Poll when there is not solar updates
+  description: ''
+  trigger:
+  - minutes: /15
+    platform: time_pattern
+  condition: []
+  action:
+  - data: {}
+    entity_id: sensor.usage_by_house_total
+    service: homeassistant.update_entity
+- id: '1602701838167'
+  alias: Start babymonitor if stream is started
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.data_in_stream
+  condition:
+  - condition: numeric_state
+    entity_id: sensor.data_in_stream
+    above: '0'
+  action:
+  - service: ffmpeg.start
+    data: {}
+    entity_id: binary_sensor.ffmpeg_noise
+  mode: single

@@ -1,50 +1,51 @@
 - platform: template
   sensors:
-    consumption_total:
-      friendly_name: "P1 Consumption Total"
-      value_template: "{{ (( states('sensor.p1_consumption_low_tarif') | float + states('sensor.p1_consumption_high_tarif') | float )) | round(3) }}"
+    delivered_total:
+      friendly_name: "P1 Delivered Total"
+      value_template: "{{ (( states('sensor.energy_delivered_t1') | float + states('sensor.energy_delivered_t2') | float )) | round(3) }}"
       unit_of_measurement: 'kWh'
 - platform: template
   sensors:
-    delivery_total:
-      friendly_name: "P1 Delivery Total"
-      value_template: "{{ (( states('sensor.p1_delivery_low_tarif') | float + states('sensor.p1_delivery_high_tarif') | float )) | round(3) }}"
+    returned_total:
+      friendly_name: "P1 Returned Total"
+      value_template: "{{ (( states('sensor.energy_returned_t1') | float + states('sensor.energy_returned_t2') | float )) | round(3) }}"
       unit_of_measurement: 'kWh'
 - platform: template
   sensors:
     energy_netto_total:
       friendly_name: "Netto total energy used"
       unit_of_measurement: 'kWh'
-      value_template: "{{ (( states('sensor.consumption_total') | float - states('sensor.delivery_total') | float )) | round(3) }}"
+      value_template: "{{ (( states('sensor.delivered_total') | float - states('sensor.returned_total') | float )) | round(3) }}"
 - platform: template
   sensors:
     usage_by_house_total:
       friendly_name: "Consumed by Home"
       unit_of_measurement: 'kWh'
       value_template: "{{ (( states('sensor.energy_netto_total') | float + states('sensor.growatt_integrated') | float)) | round(3) }}"
-      entity_id: 
+      entity_id:
        - sensor.growatt_integrated
 - platform: template
   sensors:
     daily_netto_total:
-      friendly_name: "Netto consumption daily"
+      friendly_name: "Netto delivered daily"
       unit_of_measurement: 'kWh'
-      value_template: "{{ (( states('sensor.daily_consumption') | float - states('sensor.daily_delivery') | float )) | round(3) }}"
+      value_template: "{{ (( states('sensor.daily_delivered') | float - states('sensor.daily_returned') | float )) | round(3) }}"
 - platform: template
   sensors:
     monthly_netto_total:
-      friendly_name: "Netto consumption Monthly"
+      friendly_name: "Netto delivered Monthly"
       unit_of_measurement: 'kWh'
-      value_template: "{{ (( states('sensor.monthly_consumption') | float - states('sensor.monthly_delivery') | float )) | round(3) }}"
+      value_template: "{{ (( states('sensor.monthly_delivered') | float - states('sensor.monthly_returned') | float )) | round(3) }}"
 - platform: template
   sensors:
     yearly_netto_total:
-      friendly_name: "Netto consumption Yearly"
+      friendly_name: "Netto delivered Yearly"
       unit_of_measurement: 'kWh'
-      value_template: "{{ (( states('sensor.yearly_consumption') | float - states('sensor.yearly_delivery') | float )) | round(3) }}"
+      value_template: "{{ (( states('sensor.yearly_delivered') | float - states('sensor.yearly_returned') | float )) | round(3) }}"
 - platform: template
   sensors:
     actual_energy:
       friendly_name: "Actual used or delivered energy"
       unit_of_measurement: 'kW'
-      value_template: "{{ (( states('sensor.p1_actual_power_consumption') | float - states('sensor.p1_actual_power_delivery') | float )) | round(3) }}"
+      value_template: "{{ (( states('sensor.power_delivered') | float - states('sensor.power_returned') | float )) | round(3) }}"
+

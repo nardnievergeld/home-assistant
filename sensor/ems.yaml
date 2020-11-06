@@ -181,3 +181,12 @@
   availability_topic: 'ems-esp/status'
   payload_available: "online"
   payload_not_available: "offline"
+
+- platform: template
+  sensors:
+    differential:
+      friendly_name: "Flow-Ret diff"
+      unit_of_measurement: '°C'
+      icon_template: 'mdi:format-align-middle'
+      value_template: "{{ (states('sensor.flow_temperature') | float - states('sensor.return_temp') | float) | round(1) }}"
+

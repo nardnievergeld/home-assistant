@@ -1,6 +1,5 @@
 energie_detailed:
   name: EnergieDetailed
-  view: true
   icon: mdi:lightbulb-on-outline
   entities:
     - sensor.gas_consumption
