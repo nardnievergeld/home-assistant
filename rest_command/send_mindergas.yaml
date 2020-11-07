@@ -4,5 +4,5 @@ send_mindergas:
     headers: 
         AUTH-TOKEN: !secret minder_gas_auth_token
         Content-Type: application/json
-    payload: '{"date" : "{{states.sensor.minder_gas_datum.state}}","reading" : {{ states.sensor.p1_gas_usage.state }}}'
+    payload: '{"date" : "{{states.sensor.minder_gas_datum.state}}","reading" : {{ states.sensor.gas_delivered.state }}}'
     content_type:  'application/json'
